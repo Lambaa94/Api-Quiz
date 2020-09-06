@@ -1,14 +1,20 @@
 var count = 5
 var totalCount = 60
+var penalty = 10
+var createUl = document.createElement("ul")
+var questionIndex = 0 
+
 var $timerEl = document.querySelector("#timer");
 var $quizTimerEl = document.querySelector("#quizTimer");
 var $quizTitleEl = document.querySelector(".quizTitle");
-var $questionTitleEl = document.querySelector("#questionTitle");
+var $questionTitleEl = document.querySelector("#questionContainer");
+var $startButtonEl = document.querySelector("#startButton")
+
 var $questionOneEl = document.querySelector("#a1");
 var $questionTwoEl = document.querySelector("#a2");
 var $questionThreeEl = document.querySelector("#a3");
 var $questionFourEl = document.querySelector("#a4");
-var $startButtonEl = document.querySelector("#startButton")
+
 var $allBtnsEl = document.querySelectorAll(".answerBtn")
 var questions = [
     {
@@ -174,8 +180,9 @@ function gameOver() {
 
 function quizQuestions() {
 
-}
 
+
+}
 
 
 
@@ -224,3 +231,16 @@ function quizQuestions() {
 //             var textnode = document.createTextNode(questions.questionTitle);
 //             node.appendChild(textnode);
 //             document.getElementById("questionTitle").appendChild(node);
+
+
+// $questionTitleEl.innerHTML = "";
+// createUl.innerHTML = "";
+
+// for (var i = 0; i < questions.length; i++) {
+//     var mainQuestion = questions[questionIndex].questionTitle;
+//     var userAnswer = questions[questionIndex].a1;
+//     $questionTitleEl.textContent = mainQuestion
+
+// console.log("we here")
+// }
+
