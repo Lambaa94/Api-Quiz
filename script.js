@@ -1,21 +1,25 @@
 var count = 5
 var totalCount = 60
-var penalty = 10
-var createUl = document.createElement("ul")
-var questionIndex = 0 
-
 var $timerEl = document.querySelector("#timer");
 var $quizTimerEl = document.querySelector("#quizTimer");
 var $quizTitleEl = document.querySelector(".quizTitle");
-var $questionTitleEl = document.querySelector("#questionContainer");
-var $startButtonEl = document.querySelector("#startButton")
 
+var quizDisplay = document.querySelector(".questionContainer")
+
+var $questionTitleEl = document.querySelector("#questionTitle");
 var $questionOneEl = document.querySelector("#a1");
 var $questionTwoEl = document.querySelector("#a2");
 var $questionThreeEl = document.querySelector("#a3");
 var $questionFourEl = document.querySelector("#a4");
 
+
+var $startButtonEl = document.querySelector("#startButton")
 var $allBtnsEl = document.querySelectorAll(".answerBtn")
+
+
+var questionProgressIndex = 0;
+
+
 var questions = [
     {
         questionTitle: "What is a way to print things in the console?",
@@ -166,24 +170,57 @@ function quizTimer() {
 
 
         }
-        quizQuestions();
+        
     }, 1000);
 
-
+    quizQuestions();
 };
 
 function gameOver() {
     alert("Game Over");
     window.location.href = "highscore.html"
-
+    clearInterval(timerInterval)
 };
 
+
+
+
+
 function quizQuestions() {
-
-
+quizDisplay.style.display = "block"
+ var q = questions[questionProgressIndex];
+questionTitles.innerHTML = "<p>" + q.questionTitle + "</p>";
+a1.innerHTML = q.a1;
+a2.innerHTML = q.a2;
+a3.innerHTML = q.a3;
+a4.innerHTML = q.a4;
+console.log("we are in quiz qs")
 
 }
+// $allBtnsEl.addEventListener("click", function (){
+//     var answer = 
+//     checkAnswer();
+//     console.log(click.event.target);
+// )};
 
+
+
+function checkAnswer() {
+    if (event.target == questions[questionProgressIndex].correctAnswer) { answerIsCorrect();
+
+    }
+    else {answerIsWrong();
+    }
+    if (questionProgressIndex < questions.length) {
+        questionProgressIndex ++;
+        quizQuestions();
+    }
+    else {
+        gameOver();
+        clearInterval(timerInterval);
+    }
+}
+// }
 
 
 // var newQuest = document.createElement("p");
@@ -230,17 +267,4 @@ function quizQuestions() {
 //                 var node = document.createElement("li");
 //             var textnode = document.createTextNode(questions.questionTitle);
 //             node.appendChild(textnode);
-//             document.getElementById("questionTitle").appendChild(node);
-
-
-// $questionTitleEl.innerHTML = "";
-// createUl.innerHTML = "";
-
-// for (var i = 0; i < questions.length; i++) {
-//     var mainQuestion = questions[questionIndex].questionTitle;
-//     var userAnswer = questions[questionIndex].a1;
-//     $questionTitleEl.textContent = mainQuestion
-
-// console.log("we here")
-// }
-
+//             document.getElementById("questionTitle").appendChild(node); 
