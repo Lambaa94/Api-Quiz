@@ -1,13 +1,17 @@
+// Score
 var count = 5
 var totalCount = 60
 var score = 0
+
 // Timers
 var $timerEl = document.querySelector("#timer");
 var $quizTimerEl = document.querySelector("#quizTimer");
 var $quizTitleEl = document.querySelector(".quizTitle");
 var $timerTitleEl = document.querySelector("#quizTimer")
+
 // Quiz Display
 var quizDisplay = document.querySelector(".questionContainer")
+
 // Questions and Choices
 var $questionTitleEl = document.querySelector("#questionTitle");
 var $questionOneEl = document.querySelector("#a1");
@@ -19,7 +23,7 @@ var $questionFourEl = document.querySelector("#a4");
 var $startButtonEl = document.querySelector("#startButton")
 var $allBtnsEl = document.querySelectorAll(".answerBtn")
 
-// Which question we are on
+// Current Question
 var questionProgressIndex = 0;
 
 // Array of Questions
@@ -135,6 +139,7 @@ var questions = [
 
     },
     {
+        
         questionTitle:"",
         a1:"",
         a2:"",
@@ -150,6 +155,7 @@ var questions = [
 $startButtonEl.addEventListener("click", function () {
     quizCountdown();
 });
+
 // Countdown till quiz start
 function quizCountdown() {
     var countdownTimer = setInterval(function () {
@@ -167,6 +173,7 @@ function quizCountdown() {
     }, 1000);
 
 };
+
 // Quiz Timer
 function quizTimer() {
     var timerInterval = setInterval(function () {
@@ -182,7 +189,7 @@ function quizTimer() {
             gameOver();
         }
 
-        if (totalCount === 0) {
+        if (totalCount <= 0) {
             clearInterval(timerInterval)
             $quizTimerEl.textContent = "";
             $timerTitleEl.textContent = "";
@@ -196,6 +203,12 @@ function quizTimer() {
 
     quizQuestions();
 };
+
+
+// If you were to go below 0
+if(totalCount < 0){totalCount = 0}
+
+
 // Click!!
 for (var i = 0; i < $allBtnsEl.length; i++) [
     $allBtnsEl[i].addEventListener("click", function (event) {
@@ -248,10 +261,13 @@ function checkAnswer() {
 // Correct
 function answerIsCorrect() {
     score++;
+
+    
 }
 // Wrong
 function answerIsWrong() {
-    totalCount - 9;
+    totalCount-=5;
+    
 }
 
 
@@ -259,44 +275,48 @@ function answerIsWrong() {
 // Game Over
 function gameOver() {
 
-
+    var $finalScoreLocation = document.getElementById("finalScoreLocation")
     var totalScore = score + totalCount
-
-    alert("Game Over. Your quiz score is " + totalScore);
+    
+    
+    // Creating Text to tell score
     var $gameOverText = document.createElement("text");
     $gameOverText.setAttribute("id", "gameOverText");
+    $gameOverText.setAttribute("class", "container")
     $gameOverText.setAttribute("class", "h4")
-    $gameOverText.textContent = "-"
+    $gameOverText.textContent = "Game Over. Your quiz score is " + totalScore;
+    $finalScoreLocation.appendChild($gameOverText)
 
-    quizDisplay.appendChild($gameOverText)
-
+    
+    // Creating Label
     var $createUserSentence = document.createElement("label");
     $createUserSentence.setAttribute("id", "createUserInput");
     $createUserSentence.setAttribute("class", "h4")
     $createUserSentence.textContent = "Enter your initials: ";
-
     quizDisplay.appendChild($createUserSentence);
-
+    
+    
+    // Creating input box
     var $createUserInput = document.createElement("input");
     $createUserInput.setAttribute("class", "text");
     $createUserInput.setAttribute("id", "initials");
-    $createUserInput.textContent = "Game Over. Your quiz score is " + totalScore;
-
-
     quizDisplay.appendChild($createUserInput)
-
+    
+    
+    // Creating Submit Button
     var $submitButton = document.createElement("input");
     $submitButton.setAttribute("type", "submit");
     $submitButton.setAttribute("class", "btn btn-primary");
     $submitButton.setAttribute("value", "Submit");
-
     quizDisplay.appendChild($submitButton)
-
+    
+    // Where do I put toUpperCase??
+    // adding to local storage
     $submitButton.addEventListener("click", function () {
         var initials = $createUserInput.value
-
-        if (initials === null) {
-            console.log("Initials not recorded")
+        
+        if (initials === "") {
+            alert("Initials not recorded")
         } else {
             var finalScore = {
                 initials: initials,
@@ -323,64 +343,3 @@ function gameOver() {
 
 };
 
-
-
-
-
-
-    // $allBtnsEl.addEventListener("click", function (){
-//     var answer = 
-//     checkAnswer();
-//     console.log(click.event.target);
-// )};
-
-// document.getElementsByClassName("answerBtn").addEventListener("click", event.target);
-
-    // var newQuest = document.createElement("p");
-// newQuest.textContent = (questions)[i];
-// $questionTitleEl.appendChild(newQuest);
-
-
-// for (var i = 0; i < questions.length; i++) {
-//     console.log($questionTitleEl.children)
-
-
-
-//     document.getElementById("questionTitle").setAttribute("question")[0];
-
-
-
-//     startQuiz();
-//     for (var i = 0; i < questions.length; i++) {
-//         var i = document.createElement("ul");
-//         g.setAttribute('id', question[i]);
-//         document.body.appendChild(g);
-//     }
-//     function startQuiz() {
-//         document.getElementById("questionTitle")[i];
-
-//     }
-
-//     for (var i = 0; i < $allBtnsEl.length; i++) {
-//         $allBtnsEl[i].addEventListener("click", function (event) {
-//             console.log(event.target)
-//         }
-// if (event.target.id === correctAnswer) {
-//             questions++;
-//             if (event.target.id !== correctAnswer) {
-//                 totalCount - 5;
-//             }
-//         }
-
-
-//         questionContainer.addEventListener("click", function (event) {
-//             var questionPlace = event.target;
-//             if (questionPlace.matches("answerBtn"))
-
-//                 var node = document.createElement("li");
-//             var textnode = document.createTextNode(questions.questionTitle);
-//             node.appendChild(textnode);
-//             document.getElementById("questionTitle").appendChild(node); 
-
-// if (questionProgressIndex = questions.length)
-//            $quizTitleEl.textContent = ""
