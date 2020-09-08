@@ -5,23 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap css -->
-    <!-- <link rel="stylesheet" href="https://bootswatch.com/3/superhero/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://bootswatch.com/3/superhero/bootstrap.min.css">
     <title>Document</title>
 </head>
 
 <body>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">API Coding Quiz</a>
+        <a class="nav-link" href="highscore.html">Highscores</a>
 
-    <section>Total Time: <span id="quizTimer">60</span></section>
 
-
-    <section class="container">
+        <!-- Quiz Timer -->
+        <div class="container">
+            <section> <span id="timerTitle">Total Time: </span><span id="quizTimer">60</span></section>
+        </div>
+    </nav>
+    <section class="container" class="card" style="width: 50;">
         <section class="row">
             <section class="col">
-                <h2 class = "quizTitle">Quiz Countdown : <span id="timer">5</span></h2>
-                <button id="startButton">Start</button>
-
+                <h2 class="quizTitle">Quiz Countdown : <span id="timer">5</span></h2>
+                <button type="button" class="btn btn-primary btn-lg" id="startButton">Start</button>
+                <section id="createUserInput"></section>
+                <section id="initials"></section>
             </section>
+
 
         </section>
 
@@ -33,20 +41,33 @@
     <section class="questionContainer" style="display: none">
         <section class="row">
             <section class="col">
+
                 <ul id="questionTitles"></ul>
-                <li  class="answerBtn"><button class="btn btn-primary" type="submit">A</button><span id="a1"></span></li>
-                <li class="answerBtn"><button class="btn btn-primary" type="submit">B</button><span id="a2" ></span></li>
-                <li  class="answerBtn"><button class="btn btn-primary" type="submit">C</button><span id="a3"></span></li>
-                <li class="answerBtn"><button class="btn btn-primary" type="submit" onclick="this.id">D</button><span id="a4"></span></li>
+                <li class="answerBtn"><button class="btn btn-primary" type="submit" id="A">A</button><span
+                        id="a1"></span></li>
+                <li class="answerBtn"><button class="btn btn-primary" type="submit" id="B">B</button><span
+                        id="a2"></span></li>
+                <li class="answerBtn"><button class="btn btn-primary" type="submit" id="C">C</button><span
+                        id="a3"></span></li>
+                <li class="answerBtn"><button class="btn btn-primary" type="submit" id="D">D</button><span
+                        id="a4"></span></li>
             </section>
         </section>
     </section>
 
 
-
-
-
-    <script src="./script.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script type="text/javascript" src="./script.js"></script>
 </body>
 
-</html> 
+</html>
