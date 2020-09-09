@@ -1,6 +1,14 @@
-.questionWrapper {
-    border :border-warning
-   
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    min-width: 100%; width: auto;
 };
+
+.totalWrap {
+    min-height: 100%; height: auto;
+    
+}
 
 

@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap css -->
-    <link rel="stylesheet" href="https://bootswatch.com/3/superhero/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://bootswatch.com/3/superhero/bootstrap.min.css">
+
+    <link rel="shortcut icon" href="Assets/favicon.ico">
     <title>Api Coding Quiz</title>
 </head>
 
@@ -22,52 +24,62 @@
         </div>
     </nav>
     <!-- End of Nav Bar -->
-
-
-    <!-- Quiz Countdown -->
-    <section class="container">
-        <section class="row">
-            <section class="col">
-                <h2 class="quizTitle">Quiz Countdown : <span id="timer">5</span></h2>
-                <button type="button" class="btn btn-primary btn-lg" id="startButton">Start</button>
+    <!-- Start of Quiz Section -->
+    <div class="totalWrap">
+        <!-- Quiz Countdown -->
+        <section class="container rounded-pill">
+            <section class="row-">
+                <section class="col">
+                    <h2 class="quizTitle">Quiz Countdown : <span id="timer">5</span></h2>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-lg" id="startButton">Start</button>
+                </section>
             </section>
         </section>
-    </section>
 
 
-    <!-- End Game Highscore Input and Score Message -->
-    <section class="container p-5 my-5 bg-primary text-white">
-    <section id="gameOver"></section>
-    <section id="inputSection"></section>
-    <section id="initials"></section>
-    <section id="finalScoreLocation"></section>
-    <section id="submitButton"></section>
-    </section>
+        <!-- End Game Highscore Input and Score Message -->
+        <section class="container">
+            <section class="row-lg ">
+                <section class="col-lg">
+                    <section id="gameOver"></section>
+                    <section id="inputSection"></section>
+                    <section id="initials"></section>
+                    <section id="finalScoreLocation"></section>
+                    <section id="initialInput"></section>
+                </section>
+            </section>
+        </section>
 
-    <!-- Where the quiz is held -->
-    <section class="container p-5 my-5 bg-primary text-white" id="quizDisplay" style="display: none">
-            <p id="questionTitles">
-            </p>
-            <p class="answerBtn"><button class="btn btn-primary" type="submit" id="A">A</button><span id="a1"></span>
-            </p>
-            <p class="answerBtn"><button class="btn btn-primary" type="submit" id="B">B</button><span id="a2"></span>
-            </p>
-            <p class="answerBtn"><button class="btn btn-primary" type="submit" id="C">C</button><span id="a3"></span>
-            </p>
-            <p class="answerBtn"><button class="btn btn-primary" type="submit" id="D">D</button><span id="a4"></span>
-            </p>
-    </section>
+        <!-- Where the quiz is held -->
+        <section class="container p-5 my-5 bg-primary text-white" id="quizDisplay" style="display: none">
+            <section class="row-lg-12">
+                <section class="col-lg-12">
+                    <p id="questionTitles">
+                    </p>
+                    <p class="answerBtn"><button class="btn btn-primary" type="submit" id="A">A</button><span
+                            id="a1"></span>
+                    </p>
+                    <p class="answerBtn"><button class="btn btn-primary" type="submit" id="B">B</button><span
+                            id="a2"></span>
+                    </p>
+                    <p class="answerBtn"><button class="btn btn-primary" type="submit" id="C">C</button><span
+                            id="a3"></span>
+                    </p>
+                    <p class="answerBtn"><button class="btn btn-primary" type="submit" id="D">D</button><span
+                            id="a4"></span>
+                    </p>
+                </section>
+            </section>
+        </section>
+    </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-  <section class="container p-5 my-5 bg-primary text-white">
-    <p>Scoring: Time Remaining + Correct Answers = Total Score</p>
-    <p>Wrong Answer: 5 Seconds Off Total Time</p>
-</section>
-
+    <footer class="footer">
+        <section class="container text-center">
+                    <p>Scoring: Time Remaining + Correct Answers = Total Score</p>
+                    <p>Wrong Answer: 5 Seconds Off Total Time</p>
+        </section>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

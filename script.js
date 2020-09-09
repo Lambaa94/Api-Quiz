@@ -223,7 +223,7 @@ function quizQuestions() {
     // used some jquery here
     $startButtonEl.style.display = "none"
     $quizDisplay.style.display = "block"
-    $quizTimerEl.setAttribute("class", "border")
+    questionTitles.setAttribute("class","h3")
     var q = questions[questionProgressIndex];
     questionTitles.innerHTML = q.questionTitle;
     a1.innerHTML = q.a1;
@@ -274,12 +274,13 @@ function answerIsWrong() {
 
 // Game Over
 function gameOver() {
-
+    $quizDisplay.style.display = "none"
     var $finalScoreLocation = document.getElementById("finalScoreLocation")
     var totalScore = score + totalCount
-
+    
 
     // Creating Text to tell score
+    
     var $gameOver = document.getElementById("gameOver")
     var $gameOverText = document.createElement("text");
     $gameOverText.setAttribute("id", "gameOverText");
@@ -298,20 +299,20 @@ function gameOver() {
 
 
     // Creating input box
+    var $initialInput = document.getElementById("initialInput");
     var $createUserInput = document.createElement("input");
     $createUserInput.setAttribute("class", "text");
     $createUserInput.setAttribute("id", "initials");
-    $quizDisplay.appendChild($createUserInput)
+    $initialInput.appendChild($createUserInput)
 
-
+    
     // Creating Submit Button
-    var $buttonPlacing = document.getElementById("#submitButton")
+    // var $buttonPlacing = document.getElementById("#submitButton")
     var $submitButton = document.createElement("input");
     $submitButton.setAttribute("type", "submit");
     $submitButton.setAttribute("class", "btn btn-primary");
     $submitButton.setAttribute("value", "Submit");
-    $submitButton.textContent = (" ")
-    $quizDisplay.appendChild($submitButton)
+    $initialInput.appendChild($submitButton)
 
     // Where do I put toUpperCase??
     // adding to local storage
