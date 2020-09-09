@@ -1,4 +1,6 @@
-.questionContainer {
-    justify-content: center;
-    background-color: aqua;
-}
+.questionWrapper {
+    border :border-warning
+   
+};
+
+

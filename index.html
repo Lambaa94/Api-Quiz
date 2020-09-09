@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="https://bootswatch.com/3/superhero/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <title>Api Coding Quiz</title>
 </head>
 
@@ -14,48 +15,58 @@
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="index.html">API Coding Quiz</a>
         <a class="nav-link" href="highscore.html">Highscores</a>
-        
+
         <!-- Quiz Timer -->
         <div class="container">
             <section> <span id="timerTitle">Total Time: </span><span id="quizTimer">60</span></section>
         </div>
     </nav>
-   <!-- End of Nav Bar -->
-   
-   
-   <!-- Quiz Countdown -->
-    <section class="container border border-white">
+    <!-- End of Nav Bar -->
+
+
+    <!-- Quiz Countdown -->
+    <section class="container">
         <section class="row">
             <section class="col">
                 <h2 class="quizTitle">Quiz Countdown : <span id="timer">5</span></h2>
                 <button type="button" class="btn btn-primary btn-lg" id="startButton">Start</button>
-               </section>
-        </section>
-    </section>
-    
-    
-    <!-- End Game Highscore Input and Score Message -->
-    <section id="createUserInput"></section>
-    <section id="initials"></section>
-    <section id="finalScoreLocation"></section>
-    
-    
-    <!-- Where the quiz is held -->
-    <section class="questionContainer"  style="display: none">
-        <section class="row-12 ">
-            <section class="col-12 ">
-                <ul id="questionTitles"></ul>
-                <li class="answerBtn"><button class="btn btn-primary" type="submit" id="A">A</button><span
-                        id="a1"></span></li>
-                <li class="answerBtn"><button class="btn btn-primary" type="submit" id="B">B</button><span
-                        id="a2"></span></li>
-                <li class="answerBtn"><button class="btn btn-primary" type="submit" id="C">C</button><span
-                        id="a3"></span></li>
-                <li class="answerBtn"><button class="btn btn-primary" type="submit" id="D">D</button><span
-                        id="a4"></span></li>
             </section>
         </section>
     </section>
+
+
+    <!-- End Game Highscore Input and Score Message -->
+    <section class="container p-5 my-5 bg-primary text-white">
+    <section id="gameOver"></section>
+    <section id="inputSection"></section>
+    <section id="initials"></section>
+    <section id="finalScoreLocation"></section>
+    <section id="submitButton"></section>
+    </section>
+
+    <!-- Where the quiz is held -->
+    <section class="container p-5 my-5 bg-primary text-white" id="quizDisplay" style="display: none">
+            <p id="questionTitles">
+            </p>
+            <p class="answerBtn"><button class="btn btn-primary" type="submit" id="A">A</button><span id="a1"></span>
+            </p>
+            <p class="answerBtn"><button class="btn btn-primary" type="submit" id="B">B</button><span id="a2"></span>
+            </p>
+            <p class="answerBtn"><button class="btn btn-primary" type="submit" id="C">C</button><span id="a3"></span>
+            </p>
+            <p class="answerBtn"><button class="btn btn-primary" type="submit" id="D">D</button><span id="a4"></span>
+            </p>
+    </section>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+  <section class="container p-5 my-5 bg-primary text-white">
+    <p>Scoring: Time Remaining + Correct Answers = Total Score</p>
+    <p>Wrong Answer: 5 Seconds Off Total Time</p>
+</section>
 
 
     <!-- Bootstrap JS -->
@@ -69,7 +80,7 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
     <!-- Custom JS -->
-    <script type="text/javascript" src="./script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 
 </html>

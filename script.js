@@ -10,7 +10,7 @@ var $quizTitleEl = document.querySelector(".quizTitle");
 var $timerTitleEl = document.querySelector("#quizTimer")
 
 // Quiz Display
-var quizDisplay = document.querySelector(".questionContainer")
+var $quizDisplay = document.querySelector("#quizDisplay")
 
 // Questions and Choices
 var $questionTitleEl = document.querySelector("#questionTitle");
@@ -139,13 +139,12 @@ var questions = [
 
     },
     {
-        
-        questionTitle:"",
-        a1:"",
-        a2:"",
-        a3:"",
-        a4:"",
-        correctAnswer:""
+        questionTitle: "YOU'RE DONE!!!! DON'T CLICK!!",
+        a1: "",
+        a2: "",
+        a3: "",
+        a4: "",
+        correctAnswer: ""
     }
 
 
@@ -183,7 +182,7 @@ function quizTimer() {
         if (questionProgressIndex === questions.length - 1) {
             clearInterval(timerInterval)
             $timerTitleEl.textContent = "";
-            quizDisplay.textContent = "";
+            $quizDisplay.textContent = "";
             $quizTitleEl.style.display = "none";
             $quizTimerEl.textContent = "";
             gameOver();
@@ -194,7 +193,7 @@ function quizTimer() {
             $quizTimerEl.textContent = "";
             $timerTitleEl.textContent = "";
             $quizTitleEl.textContent = "";
-            quizDisplay.textContent = "";
+            $quizDisplay.textContent = "";
             gameOver();
 
         }
@@ -206,7 +205,7 @@ function quizTimer() {
 
 
 // If you were to go below 0
-if(totalCount < 0){totalCount = 0}
+if (totalCount < 0) { totalCount = 0 }
 
 
 // Click!!
@@ -221,12 +220,12 @@ for (var i = 0; i < $allBtnsEl.length; i++) [
 
 // The Main Quiz
 function quizQuestions() {
-
+    // used some jquery here
     $startButtonEl.style.display = "none"
-    quizDisplay.style.display = "block"
-    quizDisplay.setAttribute("class", "card")
+    $quizDisplay.style.display = "block"
+    $quizTimerEl.setAttribute("class", "border")
     var q = questions[questionProgressIndex];
-    questionTitles.innerHTML = "<p>" + q.questionTitle + "</p>";
+    questionTitles.innerHTML = q.questionTitle;
     a1.innerHTML = q.a1;
     a2.innerHTML = q.a2;
     a3.innerHTML = q.a3;
@@ -241,7 +240,6 @@ function checkAnswer() {
     // the answer is the same as the correctAnswer
     if (answer === questions[questionProgressIndex].correctAnswer) {
         answerIsCorrect();
-
     }
     else {
         answerIsWrong();
@@ -253,7 +251,7 @@ function checkAnswer() {
     else {
         gameOver();
         $quizTitleEl.textContent = "";
-        quizDisplay.textContent = "";
+        $quizDisplay.textContent = "";
         $quizTimerEl.textContent = "";
 
     }
@@ -262,12 +260,14 @@ function checkAnswer() {
 function answerIsCorrect() {
     score++;
 
-    
+
+
 }
 // Wrong
 function answerIsWrong() {
-    totalCount-=5;
-    
+    totalCount -= 5;
+
+
 }
 
 
@@ -277,44 +277,47 @@ function gameOver() {
 
     var $finalScoreLocation = document.getElementById("finalScoreLocation")
     var totalScore = score + totalCount
-    
-    
+
+
     // Creating Text to tell score
+    var $gameOver = document.getElementById("gameOver")
     var $gameOverText = document.createElement("text");
     $gameOverText.setAttribute("id", "gameOverText");
     $gameOverText.setAttribute("class", "container")
     $gameOverText.setAttribute("class", "h4")
     $gameOverText.textContent = "Game Over. Your quiz score is " + totalScore;
-    $finalScoreLocation.appendChild($gameOverText)
+    $gameOver.appendChild($gameOverText)
 
-    
     // Creating Label
+    var $inputSection = document.getElementById("inputSection")
     var $createUserSentence = document.createElement("label");
     $createUserSentence.setAttribute("id", "createUserInput");
     $createUserSentence.setAttribute("class", "h4")
     $createUserSentence.textContent = "Enter your initials: ";
-    quizDisplay.appendChild($createUserSentence);
-    
-    
+    $inputSection.appendChild($createUserSentence);
+
+
     // Creating input box
     var $createUserInput = document.createElement("input");
     $createUserInput.setAttribute("class", "text");
     $createUserInput.setAttribute("id", "initials");
-    quizDisplay.appendChild($createUserInput)
-    
-    
+    $quizDisplay.appendChild($createUserInput)
+
+
     // Creating Submit Button
+    var $buttonPlacing = document.getElementById("#submitButton")
     var $submitButton = document.createElement("input");
     $submitButton.setAttribute("type", "submit");
     $submitButton.setAttribute("class", "btn btn-primary");
     $submitButton.setAttribute("value", "Submit");
-    quizDisplay.appendChild($submitButton)
-    
+    $submitButton.textContent = (" ")
+    $quizDisplay.appendChild($submitButton)
+
     // Where do I put toUpperCase??
     // adding to local storage
     $submitButton.addEventListener("click", function () {
         var initials = $createUserInput.value
-        
+
         if (initials === "") {
             alert("Initials not recorded")
         } else {
