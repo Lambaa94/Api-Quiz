@@ -314,7 +314,7 @@ function gameOver() {
     $submitButton.setAttribute("value", "Submit");
     $initialInput.appendChild($submitButton)
 
-    // Where do I put toUpperCase??
+    
     // adding to local storage
     $submitButton.addEventListener("click", function () {
         var initials = $createUserInput.value
@@ -326,7 +326,7 @@ function gameOver() {
                 initials: initials,
                 score: totalScore
             }
-            console.log(finalScore);
+            
             var allScores = localStorage.getItem("allScores");
             if (allScores === null) {
                 allScores = [];
@@ -347,3 +347,4 @@ function gameOver() {
 
 };
 
+console.log(finalScore);
