@@ -13,6 +13,10 @@ I first started with creating a basic layout of my pages and then went into crea
 **A link to deployed application below**
 * *https://lambaa94.github.io/Api-Quiz/*
 
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## Credits
 
 * *https://bootswatch.com* 
